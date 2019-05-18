@@ -1,0 +1,25 @@
+<div mat-dialog-content>
+  {{message}}
+ </div>
+
+ <h3>Editar Producto</h3>
+ 
+  <div class="form-group">
+    <label for="EditProducto">Nombre: </label>
+    <input #nom type="text" class="form-control" id="EditNombre" value="{{producto.nombre}}"  [(ngModel)]="nombre">
+    <p class="alert-danger" *ngIf="nameExists(nom.value)">Nombre ya existe</p>
+
+    <label for="EditDesc">Descripción </label>
+    <input type="text" class="form-control" id="EditDesc" value="{{producto.descripcion}}"  [(ngModel)]="descripcion">
+
+    <label for="EditPrecio">Precio </label>
+    <input #pre type="number" class="form-control" id="EditPrecio" value="{{producto.precio}}"   [(ngModel)]="precio">
+    <p class="alert-danger" *ngIf="pre.value<0">Los valores deben ser mayores a 0</p>
+    
+  </div>
+
+ <div mat-dialog-actions>
+   <button mat-button (click)="onNoClick()">No</button>
+   <button mat-button [disabled]="(nameExists(nom.value)||Validate())" [mat-dialog-close]="true" cdkFocusInitial>Guardar</button>
+   
+ </div>

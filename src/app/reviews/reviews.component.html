@@ -1,0 +1,58 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="container">
+          <form #reviewForm="ngForm" (ngSubmit)="addReview(reviewForm)">
+              <div class="form-group">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="reviewService.selectedReview._id">
+              </div>
+            <div class="row">
+              <div class="input-field col-s12">
+                <input type="text" name="name" #name="ngModel" [(ngModel)]="reviewService.selectedReview.name" placeholder="Ingresa tu usuario">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="rate" #name="ngModel" [(ngModel)]="reviewService.selectedReview.review" value="0" placeholder="evalua el servicio">
+              </div>
+              <div class="input-field col-s12">
+                  <input type="text" name="message" #name="ngModel" [(ngModel)]="reviewService.selectedReview.position" placeholder="Ingresa tu reseña">
+                </div>
+              <div class="card-action">
+                  <div class="input-field col-s12">
+                      <button class="btn btn-secondary" style="margin-left: 2px;" (click)="resetForm(reviewForm)">Borrar</button>
+                      <button class="btn btn-primary">Guardar</button>
+                    </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table class="striped highlight black-text">
+        <thead>
+          <th>Usuario</th>
+          <th>Reseña</th>
+          <th>Calificación</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let review of reviewService.reviews">
+            <td>{{ review.name }}</td>
+            <td>{{ review.position }}</td>
+            <td>{{ review.office }}</td>
+            <td>
+              <a (click)="editReview(review)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteReview(review._id, reviewForm)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,40 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> 
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
+
+    <br>
+	<br>
+	<div class="row" id="ads">
+    <!-- Category Card -->
+    <div class="col-md-8">
+        <div class="card rounded">
+            <div class="card-image">
+                <span *ngIf= "!modoCarrito" class="card-notify-year">{{producto.disponible? 'Disponible': 'Agotado'}}
+                    
+                </span>
+                <img class="img-fluid" src="https://i.blogs.es/36938e/istock-840527124/450_1000.jpg" alt="Alternate Text" />
+            </div>
+            <div class="card-image-overlay m-auto">
+                <span class="card-detail-badge">${{producto.precio}}</span>
+               
+            </div>
+            <div class="card-body text-center">
+                <div class="ad-title m-auto">
+                    <h5>{{producto.nombre}}</h5>
+                    <h6>{{producto.descripcion}}</h6>
+                    <h6 *ngIf = "modoCarrito">Subtotal: {{producto.cantidad}} x {{producto.precio}} ={{producto.cantidad*producto.precio}}</h6>
+                    <h6 *ngIf = "modoCarrito">Nota:{{producto.nota}}</h6>
+                </div>
+                <button  *ngIf = "!modoCarrito"class="ad-btn" (click)="getState()==true?openDialog():showMessage()">Agregar</button>
+                <button *ngIf = "!modoCarrito" class="btn-sm" (click)="openDelete()"><i class="fas fa-trash-alt  remove "></i></button>
+                <button *ngIf = "!modoCarrito" class="btn-sm" (click)="openEdit()"><i class="fas fa-edit "></i></button>
+                <button *ngIf = "!modoCarrito" class="btn-sm" (click)="openChange()"><i class="fas fa-exclamation-circle"></i></button>
+
+            </div>
+        </div>
+    </div>

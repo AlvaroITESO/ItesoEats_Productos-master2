@@ -1,0 +1,40 @@
+
+
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" routerLink="/admin" *ngIf="isAdmin">Admin</a>
+        <a class="nav-link" href="#" routerLink="/home"> Principal</a>
+        <a class="nav-link" href="#" routerLink="/productos"> Productos</a>
+        <a class="nav-link" href="#" routerLink="/carrito"> Carrito de compras</a>
+        <a class="nav-link" href="#" routerLink="/tienda"> Tienda</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+</nav>
+
+<!-- main app container -->
+<!-- <div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<router-outlet></router-outlet>
+<!-- credits -->
+<div class="text-center">
+    <p>
+       
+    </p>
+    <p>
+        
+    </p>
+</div>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

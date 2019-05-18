@@ -1,0 +1,23 @@
+
+
+
+
+        
+ <div class="row mb-5 ml-5 mt-8 ">
+    <h2>Sección Tiendas</h2>
+</div>
+   
+    <div class="row align-items-start d-flex">
+     
+  <app-tienda-item
+  *ngFor="let t of tiendas| paginate: {itemsPerPage: 6, currentPage:page, id: '1'}; let i = index" 
+  [tienda]="t" 
+  >
+  </app-tienda-item>
+</div>
+
+<pagination-controls id="pag" class="d-flex justify-content-end " (pageChange)="page = $event" id="1"
+                      maxSize="5"
+                      directionLinks="true"
+                      autoHide="true">
+                </pagination-controls>`
